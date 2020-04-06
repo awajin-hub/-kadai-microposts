@@ -1,0 +1,33 @@
+<div class="text-center">
+    
+</div>
+
+<div class="row">
+    <div class="col-sm-6 offset-sm-3">
+        <%=form_with(model: @message, local: true) do |f| %>
+            <%= render "layouts/error_messages", model: f.object %>
+        
+            <div class="form-group">
+                <%= f.label :name, "name" %>
+                <%= f.text_field :name, class: "form-control" %>
+            </div>
+        
+            <div class="form-group">
+                <%= f.label :email, "Email" %>
+                <%= f.email_field :email, class: "form-control" %>
+            </div>
+            
+            <div class="form-group">
+                <%= f.label :password, "name" %>
+                <%= f.password_field :password, class: "form-control" %>
+            </div>
+            
+            <div class="form-group">
+                <%= f.label :password_confirmation, "Confirmation" %>
+                <%= f.text_field :password_confirmation, class: "form-control" %>
+            </div>
+            
+            <%= f.submit "sign up", class: "btn btn-primary btn-block" %>
+        <% end %>
+    </div>
+</div>
