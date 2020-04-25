@@ -11,7 +11,7 @@ class User < ApplicationRecord
   has_many :reverses_of_relationship, class_name: "Relationship", foreign_key:"follow_id"
   has_many :followers, through: :reverses_of_relationship, source: :user
   
-  has_many :favorites, foreign_key: "user_id"
+  has_many :favorites, foreign_key: "user_id", :dependent => :nullify
   has_many :favorite_post, through: :favorites, source: :micropost
   #has_many :reverses_of_relationship, class_name: "Favorite", foreign_key: "micropost_id"
   #has_many :users, through: :favorites
